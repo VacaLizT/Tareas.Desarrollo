@@ -3,7 +3,7 @@ retiro=int(input("Ingrese el monto que desea retirar: "))
 if retiro==saldo:
     print(f"Retiro exitoso, su saldo actual es de: {saldo-retiro}")
 elif retiro==0:
-    print(f"Su saldo actual es de: {saldo-retiro}")
+    print(f"Su saldo actual es de: {saldo-retiro}, Adiós.")
 n=1
 while retiro>saldo:
     print(f"Saldo insuficiente, su saldo actual es de: {saldo}")
