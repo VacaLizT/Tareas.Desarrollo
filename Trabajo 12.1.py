@@ -26,7 +26,6 @@ for i in range(2):
         resta=c[i][j]-d[i][j]
         fila_resta.append(resta)
     matriz_resta.append(fila_resta)
-(f"{a+b}")
 print(matriz_resta[0])
 print(matriz_resta[1])
 
@@ -41,7 +40,6 @@ for i in range(2):
         mul=e[i][j]*2
         fila_mul.append(mul)
     matriz_mul.append(fila_mul)
-(f"{a+b}")
 print(matriz_mul[0])
 print(matriz_mul[1])
 
@@ -54,6 +52,5 @@ for i in range(2):
     for j in range(2):
         fila_tra.append(f[j][i])
     matriz_tra.append(fila_tra)
-(f"{a+b}")
 print(matriz_tra[0])
 print(matriz_tra[1])
