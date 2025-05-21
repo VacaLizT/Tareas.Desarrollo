@@ -1,0 +1,181 @@
+import pandas as pd
+
+tallas_niña={
+    0: 49, 1: 54, 2: 57, 3: 60, 4: 62, 5: 54, 6: 65.8, 7: 67.4, 8: 68.8,
+    9: 70, 10: 71.5, 11: 72.8, 12: 74, 13: 75.2, 14: 76.4, 15: 77.4, 16: 78.5,
+    17: 79.8, 18: 80.8, 19: 81.7, 20: 82.7, 21: 83.6, 22: 84.6, 23: 85.5, 24: 86.4
+}
+tallas_niño={
+    0: 50, 1: 55, 2: 58.5, 3: 61.5, 4: 64, 5: 66, 6: 67.7, 7: 69, 8: 70.7,
+    9: 72, 10: 73, 11: 74.6, 12: 76, 13: 77, 14: 78, 15: 79, 16: 80,
+    17: 80.4, 18: 80.8, 19: 81.7, 20: 82.7, 21: 83.6, 22: 84.6, 23: 85.5, 24: 86.4
+}
+
+craneo_niña={
+    0: 34, 1: 36.5, 2: 38.3, 3: 39.5, 4: 40.5, 5: 41.5, 6: 42.2, 7: 42.8, 8: 43.4,
+    9: 43.8, 10: 44.2, 11: 44.6, 12: 44.9, 13: 45.2, 14: 45.4, 15: 45.6, 16: 45.8,
+    17: 46, 18: 46.25, 19: 46.4, 20: 46.6, 21: 46.7, 22: 46.9, 23: 47, 24: 47.2
+}
+craneo_niño={
+    0: 34, 1: 36.5, 2: 38.3, 3: 39.5, 4: 40.5, 5: 41.5, 6: 42.2, 7: 42.8, 8: 43.4,
+    9: 43.8, 10: 44.2, 11: 44.6, 12: 44.9, 13: 45.2, 14: 45.4, 15: 45.6, 16: 45.8,
+    17: 46, 18: 46.25, 19: 46.4, 20: 46.6, 21: 46.7, 22: 46.9, 23: 47, 24: 47.2
+}
+
+peso_niña={
+    0: 3.1, 1: 4, 2: 5, 3: 5.9, 4: 6.4, 5: 6.8, 6: 7.3, 7: 7.6, 8: 8,
+    9: 8.2, 10: 8.4, 11: 8.7, 12: 9, 13: 9.1, 14: 9.4, 15: 9.6, 16: 9.8,
+    17: 10, 18: 10.2, 19: 10.4, 20: 10.7, 21: 10.9, 22: 11, 23: 11.3, 24: 11.5
+}
+peso_niño={
+    0: 3.2, 1: 4.4, 2: 5.5, 3: 6.2, 4: 7, 5: 7.6, 6: 8, 7: 8.2, 8: 8.5,
+    9: 8.9, 10: 9.2, 11: 9.4, 12: 9.5, 13: 9.9, 14: 10, 15: 10.2, 16: 10.5,
+    17: 10.7, 18: 11, 19: 11.1, 20: 11.3, 21: 11.5, 22: 11.7, 23: 12, 24: 12.1
+}
+conta=0
+contador=0
+contadorr=0
+datos=[]
+gener=["Hombre","Mujer"]
+estado=["Bajo","Dentro","Alto"]
+dato=int(input("Ingrese la cantidad de los niños que desea ingresar: "))
+bajot=[]
+bajoc=[]
+bajop=[]
+mediot=[]
+medioc=[]
+mediop=[]
+altot=[]
+altoc=[]
+altop=[]
+while conta!=dato:
+    edad_niñ=float(input("Ingrese la edad de la bebé en meses: "))
+    peso_niñ=float(input("Ingrese el peso del niño en kg: "))
+    talla_niñ=float(input("Ingrese la talla del niño en cm: "))
+    craneo_niñ=float(input("Ingrese el perímetro craneal del niño en cm: "))
+    genero=int(input("Introduzca el género (1 si es mujer y 0 si es hombre): "))
+    gen=gener[genero]
+    listad=[" ","1.Alta Verapaz","2.Baja Verapaz","3.Chimaltenango","4.Chiquimula","5.El Progreso","6.Escuintla","7.Guatemala","8.Huehuetenango","9.Izabal","10.Jalapa","11.Jutiapa","12.Petén","13.Quetzaltenango","14.Quiché","15.Retalhuleu","16.Sacatepéquez","17.San Marco","18.Santa Rosa","19.Sololá","20.Suchitepéquez","21.Totonicapán","22.Zacapa"]
+    print(listad)
+    departamento=int(input("Elija un departamento (solamente el número): "))
+    new=listad[departamento]
+    
+    if genero==1:
+        contador=contador+1
+        if ((edad_niñ>0) and (edad_niñ < 25) and (peso_niñ>0) and (talla_niñ>0) and (craneo_niñ>0)):
+            conta=conta+1
+            if edad_niñ in tallas_niña:
+                indice=tallas_niña[edad_niñ]
+                resta=indice-talla_niñ
+                if resta > 0:
+                    new1=estado[0]
+                    bajot.append(1)
+                elif resta < 0:
+                    new1=estado[2]
+                    altot.append(1)
+                else:
+                    new1=estado[1]
+            if edad_niñ in craneo_niña:
+                indice1=craneo_niña[edad_niñ]
+                resta1=indice1-craneo_niñ
+                if resta1 > 0:
+                    new2=estado[0]
+                    bajoc.append(1)
+                elif resta1 < 0:
+                    new2=estado[2]
+                    altoc.append(1)
+                else:
+                    new2=estado[1]
+                    medioc.append(1)
+            if edad_niñ in peso_niña:
+                indice2=peso_niña[edad_niñ]
+                resta2=indice2-peso_niñ
+                if resta2 > 0:
+                    new3=estado[0]
+                    bajop.append(1)
+                elif resta2 < 0:
+                    new3=estado[2]
+                    altop.append(1)
+                else:
+                    new3=estado[1]
+                    mediop.append(1)
+        else:
+            print("¡DATO INCORRECTO!")            
+    elif genero == 0:
+        contadorr=contadorr+1
+        if ((edad_niñ>0) and (edad_niñ < 25) and (peso_niñ>0) and (talla_niñ>0) and (craneo_niñ>0)):
+            conta=conta+1
+            if edad_niñ in tallas_niño:
+                indice=tallas_niño[edad_niñ]
+                resta=indice-talla_niñ
+                if resta > 0:
+                    new1=estado[0]
+                    bajot.append(1)
+                elif resta < 0:
+                    new1=estado[2]
+                    altot.append(1)
+                else:
+                    new1=estado[1]
+                    mediot.append(1)
+            if edad_niñ in craneo_niño:
+                indice1=craneo_niño[edad_niñ]
+                resta1=indice1-craneo_niñ
+                if resta1 > 0:
+                    new2=estado[0]
+                    bajoc.append(1)
+                elif resta1 < 0:
+                    new2=estado[2]
+                    altoc.append(1)
+                else:
+                    new2=estado[1]
+                    medioc.append(1)
+            if edad_niñ in peso_niño:
+                indice2=peso_niño[edad_niñ]
+                resta2=indice2-peso_niñ
+                if resta2 > 0:
+                    new3=estado[0]
+                    bajop.append(1)
+                elif resta2 < 0:
+                    new3=estado[2]
+                    altop.append(1)
+                else:
+                    new3=estado[1]
+                    mediop.append(1)
+                    
+        else:
+            print("¡DATO INCORRECTO!")
+    else:
+        print("¡DATO INCORRECTO!")
+           
+    bajott=((sum(bajot))/conta)*100
+    bajocc=((sum(bajoc))/conta)*100
+    bajopp=((sum(bajop))/conta)*100
+    mediott=((sum(mediot))/conta)*100
+    mediopp=((sum(mediop))/conta)*100
+    mediocc=((sum(medioc))/conta)*100
+    altopp=((sum(altop))/conta)*100
+    altocc=((sum(altoc))/conta)*100
+    altott=((sum(altot))/conta)*100
+    
+    datos.append([new, edad_niñ, peso_niñ, talla_niñ, craneo_niñ, gen, new1, new2, new3])
+
+
+    df = pd.DataFrame(datos, columns = [f"Departamento", "Edad (meses)", "Peso (kg)", "Talla (cm)", "Perímetro Craneal (cm)", "Género", "Talla", "Cráneo","Peso" ])
+
+
+print("\nTabla de datos ingresados:")
+print(df)
+print("---------------------------------------------------------------------------------------")
+print("RESULTADOS DE PESO:")
+print("---------------------------------------------------------------------------------------")
+print(f"El {bajopp:.2f}%, está debajo, el {mediopp:.2f}% está en el promedio y el {altopp:.2f}% está sobre")
+print("---------------------------------------------------------------------------------------")
+print("RESULTADOS DE CRÁNEO:")
+print("---------------------------------------------------------------------------------------")
+print(f"El {bajocc:.2f}%, está debajo, el {mediocc:.2f}% está en el promedio y el {altocc:.2f}% está sobre")
+print("---------------------------------------------------------------------------------------")
+print("RESULTADOS DE TALLA:")
+print("---------------------------------------------------------------------------------------")
+print(f"El {bajott:.2f}%, está debajo, el {mediott:.2f}% está en el promedio y el {altott:.2f}% está sobre")
+print("---------------------------------------------------------------------------------------")
+print(f"Las niñas evaluadas fueron: {contador}, y los niños evaluados fueron: {contadorr}")
