@@ -1,0 +1,73 @@
+import math
+dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
+
+niveles_azucar = [130, 160, 95, 175, 160]     # mg/dL
+niveles_sal = [2000, 2400, 1800, 2400, 2700]  # mg
+presion_sistolica = [115, 130, 110, 125, 175]           # mmHg
+presion_diastolica = [78, 79, 85, 89 , 92]           # mmHg
+
+for indice, i in enumerate(niveles_azucar):
+    if (i >= 70) and (i <= 140):
+        print (f"Día {dias[indice]}")
+        print("El paciente tiene un nivel de azúcar normal.")
+    elif (i > 140):
+        print (f"Día {dias[indice]}")
+        print("¡ALERTA!, El paciente tiene un nivel de azúcar alto.")
+    else:
+        print (f"Día {dias[indice]}")
+        print("El paciente tiene un nivel de azúcar bajo.")
+for indice2, i in enumerate(niveles_sal):
+    if (i <= 2300) and (i >=1500):
+        print (f"Día {dias[indice2]}")
+        print("El paciente consume una cantidad saludable de sal.")
+    elif (i > 2300):
+        print (f"Día {dias[indice2]}")
+        print("¡ALERTA! El paciente debe consumir menos sal.")
+    else:
+        print (f"Día {dias[indice2]}")
+        print("El paciente debe consumir más sal.")
+for indice3, (i, j) in enumerate(zip(presion_sistolica, presion_diastolica)):
+    if (i < 120) and (j < 80):
+        print (f"Día {dias[indice3]}")
+        print("El paciente tiene presión normal.")
+    elif (i <= 129 and i >= 120) and (j <= 80 ):
+        print (f"Día {dias[indice3]}")
+        print("¡TOMAR PRECAUCIONES!, El paciente tiene presión elevada.")
+    elif (i >= 130 and i <=139) and (j <= 89):
+        print (f"Día {dias[indice3]}")
+        print("¡ALERTA, VAYA AL HOSPITAL!, El paciente tiene Hipertensión Etapa 1.")
+    elif (i >= 140) and (j >= 90):
+        print (f"Día {dias[indice3]}")
+        print("¡ALERTA, ALERTÍSIMA, VAYA AL HOSPITAL, SINO, IXCAMIK! El paciente tiene Hipertensión Etapa 2.")
+    elif (i < 130) and (j >= 80):
+        print (f"Día {dias[indice3]}")
+        print("¡ALERTA, VAYA AL HOSPITAL!, El paciente tiene Hipertensión Etapa 1.")
+niveles_azucar_prom = sum(niveles_azucar) / 5        
+print(f"El promeido semanal del nivel de Azúcar es: {niveles_azucar_prom}.")
+if (niveles_azucar_prom >= 70) and (niveles_azucar_prom <= 140):
+    print("El paciente tiene un nivel de azúcar normal.")
+elif (niveles_azucar_prom > 140):
+    print("¡ALERTA!, El paciente tiene un nivel de azúcar alto.")
+else:
+    print("El paciente tiene un nivel de azúcar bajo.")
+niveles_sal_prom = sum(niveles_sal) / 5
+print(f"El promedio semanal del nivel de sal es: {niveles_sal_prom}.")
+if (niveles_sal_prom <= 2300) and (niveles_sal_prom >=1500):
+    print("El paciente consume una cantidad saludable de sal.")
+elif (niveles_sal_prom > 2300):
+    print("¡ALERTA! El paciente debe consumir menos sal.")
+else:
+    print("El paciente debe consumir más sal.")
+presion_sistolica_prom=sum(presion_sistolica)/5
+presion_diastolica_prom=sum(presion_diastolica)/5
+print(f"El promedio semanal de la presión arteriales, presión sistólica: {presion_sistolica_prom} y presión: {presion_diastolica_prom}")
+if (presion_sistolica_prom < 120) and (presion_diastolica_prom < 80):
+    print("El paciente tiene presión normal.")
+elif (presion_sistolica_prom <= 129 and presion_sistolica_prom >= 120) and (presion_diastolica_prom <= 80 ):
+    print("¡TOMAR PRECAUCIONES!, El paciente tiene presión elevada.")
+elif (presion_sistolica_prom >= 130 and presion_sistolica_prom <=139) and (presion_diastolica_prom <= 89):
+    print("¡ALERTA, VAYA AL HOSPITAL!, El paciente tiene Hipertensión Etapa 1.")
+elif (presion_sistolica_prom_prom >= 140) and (presion_diastolica_prom >= 90):
+    print("¡ALERTA, ALERTÍSIMA, VAYA AL HOSPITAL, SINO, IXCAMIK! El paciente tiene Hipertensión Etapa 2.")
+elif (presion_sistolica_prom < 130) and (presion_diastolica_prom >= 80):
+    print("¡ALERTA, VAYA AL HOSPITAL!, El paciente tiene Hipertensión Etapa 1.")
